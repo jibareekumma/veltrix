@@ -1,0 +1,50 @@
+
+
+@import "../css/Variable";
+@import "../css/Mixings";
+
+.testimonials {
+  @include container;
+  padding: 60px 20px;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include desktop {
+      flex-direction: row;
+    }
+  }
+
+  &__card {
+    flex: 1;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: $radius-md;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  &__quote-mark {
+    font-size: 2rem;
+    color: $color-yellow;
+  }
+
+  &__text {
+    font-size: 0.9rem;
+    color: $color-charcoal;
+    margin: 12px 0 20px;
+  }
+
+  &__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: $radius-full;
+    margin: 0 auto 12px;
+  }
+
+  &__name {
+    font-size: 1rem;
+    color: $color-black;
+  }
+}

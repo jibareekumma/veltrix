@@ -1,0 +1,142 @@
+
+
+
+@import "../css/Variable";
+@import "../css/Mixings";
+
+.cart-page {
+  @include container;
+  padding: 40px 20px 80px;
+
+  &--empty {
+    text-align: center;
+    padding: 80px 20px;
+  }
+
+  &__empty-image {
+    width: 200px;
+    margin: 0 auto 20px;
+  }
+
+  &__empty-title {
+    font-size: 1.4rem;
+    color: $color-black;
+    margin-bottom: 10px;
+  }
+
+  &__empty-text {
+    color: $color-charcoal;
+    margin-bottom: 20px;
+  }
+
+  &__cta {
+    display: inline-block;
+    background-color: $color-yellow;
+    color: $color-black;
+    padding: 12px 30px;
+    border-radius: $radius-full;
+    font-weight: 600;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    color: $color-black;
+  }
+
+  &__table {
+    border-radius: $radius-md;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border-bottom: 1px solid $color-gray;
+
+    &--header {
+      background-color: $color-black;
+      color: $color-text-light;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+
+  &__cell {
+    flex: 1;
+    min-width: 100px;
+
+    &--item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-basis: 100%;
+
+      @include desktop {
+        flex-basis: 40%;
+      }
+    }
+  }
+
+  &__item-image {
+    width: 70px;
+  }
+
+  &__item-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $color-black;
+  }
+
+  &__item-price {
+    color: $color-charcoal;
+    font-size: 0.8rem;
+  }
+
+  &__quantity {
+    width: 50px;
+    height: 32px;
+    text-align: center;
+    border: 1px solid $color-charcoal;
+    border-radius: $radius-sm;
+  }
+
+  &__remove {
+    color: $color-charcoal;
+    font-weight: 500;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-yellow-dark;
+    }
+  }
+
+  &__summary {
+    text-align: right;
+    margin-top: 24px;
+  }
+
+  &__total {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  &__checkout {
+    background-color: $color-yellow;
+    color: $color-black;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: $radius-sm;
+    transition: background-color $transition-base;
+
+    &:hover {
+      background-color: $color-yellow-light;
+    }
+  }
+}

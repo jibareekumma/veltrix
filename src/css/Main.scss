@@ -1,0 +1,65 @@
+
+
+
+
+@import "./Variable";
+@import "./Mixings";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-primary;
+  background-color: $color-white;
+  color: $color-black;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 40px;
+  position: relative;
+  color: $color-black;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    background-color: $color-yellow;
+    border-radius: $radius-full;
+    margin: 12px auto 0;
+  }
+
+  @include desktop {
+    font-size: 2rem;
+  }
+}

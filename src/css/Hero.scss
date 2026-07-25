@@ -1,0 +1,72 @@
+
+
+
+@import "../css/Variable";
+@import "../css/Mixings";
+
+.hero {
+  background-color: $color-black;
+  padding: 60px 20px;
+
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include desktop {
+      flex-direction: row;
+      align-items: center;
+      gap: 60px;
+    }
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__eyebrow {
+    color: $color-yellow;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    color: $color-text-light;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin: 16px 0;
+
+    @include desktop {
+      font-size: 3.4rem;
+    }
+  }
+
+  &__text {
+    color: $color-text-muted;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 420px;
+  }
+
+  &__cta {
+    display: inline-block;
+    background-color: $color-yellow;
+    color: $color-black;
+    font-weight: 600;
+    padding: 14px 34px;
+    border-radius: $radius-full;
+    margin-top: 26px;
+    transition: background-color $transition-base;
+
+    &:hover {
+      background-color: $color-yellow-light;
+    }
+  }
+
+  &__media {
+    flex: 1;
+  }
+}

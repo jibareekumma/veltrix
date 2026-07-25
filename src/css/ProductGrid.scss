@@ -1,0 +1,32 @@
+
+
+
+@import "../css/Variable";
+@import "../css/Mixings";
+
+.product-grid {
+  @include container;
+  padding: 50px 20px;
+
+  &__header {
+    @include flex-between;
+    margin-bottom: 20px;
+  }
+
+  &__action {
+    color: $color-charcoal;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+  }
+}

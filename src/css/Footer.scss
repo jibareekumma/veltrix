@@ -1,0 +1,95 @@
+
+
+
+@import "../css/Variable";
+@import "../css/Mixings";
+
+.footer {
+  background-color: $color-black;
+  color: $color-text-muted;
+  padding: 60px 20px 20px;
+
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include desktop {
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__brand {
+    max-width: 320px;
+  }
+
+  &__logo {
+    color: $color-yellow;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  &__text {
+    color: $color-text-muted;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  &__newsletter {
+    display: flex;
+    margin-top: 16px;
+  }
+
+  &__input {
+    flex: 1;
+    height: 38px;
+    padding: 0 10px;
+    border: none;
+    border-radius: $radius-sm 0 0 $radius-sm;
+    outline: none;
+  }
+
+  &__button {
+    background-color: $color-yellow;
+    color: $color-black;
+    font-weight: 600;
+    padding: 0 16px;
+    border-radius: 0 $radius-sm $radius-sm 0;
+    transition: background-color $transition-base;
+
+    &:hover {
+      background-color: $color-yellow-light;
+    }
+  }
+
+  &__heading {
+    color: $color-text-light;
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+
+  &__list li {
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+
+    a {
+      color: $color-text-muted;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $color-yellow;
+      }
+    }
+  }
+
+  &__copyright {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid $color-charcoal;
+    font-size: 0.75rem;
+  }
+}

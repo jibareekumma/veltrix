@@ -1,0 +1,50 @@
+
+
+@import "../css/Variable";
+@import "../css/Mixings";
+
+.product-card {
+  display: block;
+  border: 1px solid $color-gray;
+  border-radius: $radius-md;
+  padding: 12px;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  &__image {
+    margin-bottom: 12px;
+  }
+
+  &__title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: $color-black;
+    margin-bottom: 6px;
+  }
+
+  &__price {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $color-charcoal;
+    margin-bottom: 6px;
+  }
+
+  &__rating {
+    display: flex;
+    gap: 2px;
+  }
+
+  &__star {
+    color: $color-gray;
+    font-size: 0.8rem;
+
+    &--full,
+    &--half {
+      color: $color-yellow;
+    }
+  }
+}

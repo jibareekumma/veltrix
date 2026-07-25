@@ -1,0 +1,98 @@
+
+
+@import "../css/Variable";
+@import "../css/Mixings";
+
+.product-details {
+  @include container;
+  padding: 40px 20px 80px;
+
+  &--empty {
+    text-align: center;
+    padding: 100px 20px;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 60px;
+
+    @include desktop {
+      flex-direction: row;
+      gap: 60px;
+    }
+  }
+
+  &__gallery {
+    flex: 1;
+  }
+
+  &__thumbs {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  &__thumb {
+    width: 90px;
+    cursor: pointer;
+  }
+
+  &__info {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    color: $color-black;
+    margin-bottom: 10px;
+  }
+
+  &__price {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $color-charcoal;
+    margin-bottom: 20px;
+  }
+
+  &__size,
+  &__quantity {
+    border: 1px solid $color-charcoal;
+    padding: 10px;
+    border-radius: $radius-sm;
+    margin-bottom: 16px;
+    margin-right: 10px;
+  }
+
+  &__quantity {
+    width: 70px;
+  }
+
+  &__cta {
+    display: block;
+    background-color: $color-yellow;
+    color: $color-black;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: $radius-full;
+    margin: 10px 0 30px;
+    transition: background-color $transition-base;
+
+    &:hover {
+      background-color: $color-yellow-light;
+    }
+  }
+
+  &__section-heading {
+    font-size: 1.1rem;
+    color: $color-black;
+    margin-bottom: 12px;
+  }
+
+  &__description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: $color-charcoal;
+  }
+}

@@ -1,0 +1,117 @@
+.cart-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+.cart-page--empty {
+  text-align: center;
+  padding: 80px 20px;
+}
+.cart-page__empty-image {
+  width: 200px;
+  margin: 0 auto 20px;
+}
+.cart-page__empty-title {
+  font-size: 1.4rem;
+  color: rgb(14, 19, 17);
+  margin-bottom: 10px;
+}
+.cart-page__empty-text {
+  color: rgb(24, 32, 29);
+  margin-bottom: 20px;
+}
+.cart-page__cta {
+  display: inline-block;
+  background-color: rgb(245, 183, 0);
+  color: rgb(14, 19, 17);
+  padding: 12px 30px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.cart-page__title {
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+  color: rgb(14, 19, 17);
+}
+.cart-page__table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+.cart-page__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid rgb(58, 71, 65);
+}
+.cart-page__row--header {
+  background-color: rgb(14, 19, 17);
+  color: rgb(238, 243, 240);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.cart-page__cell {
+  flex: 1;
+  min-width: 100px;
+}
+.cart-page__cell--item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-basis: 100%;
+}
+@media (min-width: 768px) {
+  .cart-page__cell--item {
+    flex-basis: 40%;
+  }
+}
+.cart-page__item-image {
+  width: 70px;
+}
+.cart-page__item-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgb(14, 19, 17);
+}
+.cart-page__item-price {
+  color: rgb(24, 32, 29);
+  font-size: 0.8rem;
+}
+.cart-page__quantity {
+  width: 50px;
+  height: 32px;
+  text-align: center;
+  border: 1px solid rgb(24, 32, 29);
+  border-radius: 4px;
+}
+.cart-page__remove {
+  color: rgb(24, 32, 29);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.cart-page__remove:hover {
+  color: rgb(183.8, 137.2873469388, 0);
+}
+.cart-page__summary {
+  text-align: right;
+  margin-top: 24px;
+}
+.cart-page__total {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.cart-page__checkout {
+  background-color: rgb(245, 183, 0);
+  color: rgb(14, 19, 17);
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.cart-page__checkout:hover {
+  background-color: rgb(255, 215, 79);
+}/*# sourceMappingURL=Cart.css.map */

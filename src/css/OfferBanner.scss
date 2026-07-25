@@ -1,0 +1,64 @@
+
+
+
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.offer-banner {
+  background-color: $color-gray;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+
+  @include desktop {
+    flex-direction: row;
+    justify-content: center;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__media {
+    width: 260px;
+  }
+
+  &__content {
+    text-align: center;
+
+    @include desktop {
+      text-align: left;
+    }
+  }
+
+  &__heading {
+    font-size: 2.4rem;
+    color: $color-black;
+  }
+
+  &__subheading {
+    font-size: 1.6rem;
+    color: $color-charcoal;
+    margin: 10px 0;
+  }
+
+  &__tag {
+    font-style: italic;
+    color: $color-charcoal;
+  }
+
+  &__cta {
+    display: inline-block;
+    background-color: $color-black;
+    color: $color-yellow;
+    padding: 12px 30px;
+    border-radius: $radius-full;
+    margin-top: 20px;
+    transition: background-color $transition-base;
+
+    &:hover {
+      background-color: $color-charcoal;
+    }
+  }
+}

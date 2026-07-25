@@ -1,0 +1,20 @@
+
+
+@import "../css/Variable";
+@import "../css/Mixings";
+
+.brands-strip {
+  @include container;
+  padding: 50px 20px 80px;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  &__logo {
+    width: 140px;
+  }
+}

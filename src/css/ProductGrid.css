@@ -1,0 +1,27 @@
+.product-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+.product-grid__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.product-grid__action {
+  color: rgb(24, 32, 29);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.product-grid__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media (min-width: 768px) {
+  .product-grid__list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+}/*# sourceMappingURL=ProductGrid.css.map */

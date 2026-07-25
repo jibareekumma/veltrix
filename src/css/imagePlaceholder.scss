@@ -1,0 +1,23 @@
+
+
+@import "../css/Variable";
+
+
+.image-placeholder {
+  width: 100%;
+  background-color: $color-white;
+  border: 1px solid $color-gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__label {
+    color: $color-charcoal;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    padding: 0 10px;
+  }
+}

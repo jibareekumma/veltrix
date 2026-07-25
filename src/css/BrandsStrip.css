@@ -1,0 +1,14 @@
+.brands-strip {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px 80px;
+}
+.brands-strip__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+.brands-strip__logo {
+  width: 140px;
+}/*# sourceMappingURL=BrandsStrip.css.map */

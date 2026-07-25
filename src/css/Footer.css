@@ -1,0 +1,78 @@
+.footer {
+  background-color: rgb(14, 19, 17);
+  color: rgb(150, 163, 155);
+  padding: 60px 20px 20px;
+}
+.footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+@media (min-width: 768px) {
+  .footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+.footer__brand {
+  max-width: 320px;
+}
+.footer__logo {
+  color: rgb(245, 183, 0);
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+.footer__text {
+  color: rgb(150, 163, 155);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.footer__newsletter {
+  display: flex;
+  margin-top: 16px;
+}
+.footer__input {
+  flex: 1;
+  height: 38px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+.footer__button {
+  background-color: rgb(245, 183, 0);
+  color: rgb(14, 19, 17);
+  font-weight: 600;
+  padding: 0 16px;
+  border-radius: 0 4px 4px 0;
+  transition: background-color 0.3s ease;
+}
+.footer__button:hover {
+  background-color: rgb(255, 215, 79);
+}
+.footer__heading {
+  color: rgb(238, 243, 240);
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+.footer__list li {
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+}
+.footer__list li a {
+  color: rgb(150, 163, 155);
+  transition: color 0.3s ease;
+}
+.footer__list li a:hover {
+  color: rgb(245, 183, 0);
+}
+.footer__copyright {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgb(24, 32, 29);
+  font-size: 0.75rem;
+}/*# sourceMappingURL=Footer.css.map */
