@@ -1,7 +1,7 @@
 
 
 
-import "../../css/ImagePlaceholder.css"
+import "../../css/imagePlaceholder.css"
 
 const ImagePlaceholder = function ({ className = "", ratio = "1/1", label = "" }) {
   return (
