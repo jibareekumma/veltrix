@@ -5,13 +5,30 @@
 }
 .category-slider__viewport {
   position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .category-slider__viewport {
+    height: 480px;
+  }
 }
 .category-slider__slide {
   display: none;
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 .category-slider__slide--active {
   display: block;
+}
+.category-slider__slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  border-radius: 8px;
 }
 .category-slider__label {
   position: absolute;

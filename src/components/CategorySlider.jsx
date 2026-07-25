@@ -5,10 +5,16 @@ import { useEffect, useState } from "react";
 import ImagePlaceholder from "./ImagePlaceholder/ImagePlaceholder";
 import "../css/CategorySlider.css";
 
+import lifestyleSneekers from "/images/lifestyle_sneekers.jpg"
+import runningShoes from "/images/running_shoes.jpg"
+import hikingShoes from "/images/hiking_boots.jpg"
+import trainingShoes from "/images/training_shoes.jpg"
+
 const categories = [
-  { id: 1, label: "Running Shoes" },
-  { id: 2, label: "Lifestyle Sneakers" },
-  { id: 3, label: "Hiking Boots" },
+  { id: 1, label: "Running Shoes", image: runningShoes },
+  { id: 2, label: "Lifestyle Sneakers", image: lifestyleSneekers },
+  { id: 3, label: "Hiking Boots", image: hikingShoes },
+  { id: 4, label: "Training Shoes", image: trainingShoes },
 ];
 
 const CategorySlider = function () {
@@ -41,7 +47,8 @@ const CategorySlider = function () {
                 index === activeIndex ? "category-slider__slide--active" : ""
               }`}
             >
-              <ImagePlaceholder className="category-slider__image" label={category.label} ratio="16/7" />
+              <img src = {category.image} 
+              alt="Images Of Shoe" loading="lazy"/>
               <span className="category-slider__label">{category.label}</span>
             </div>
           );

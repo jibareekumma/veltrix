@@ -4,11 +4,16 @@ import { Link } from "react-router-dom";
 import ImagePlaceholder from "./ImagePlaceholder/ImagePlaceholder";
 import "../css/OfferBanner.css";
 
+import featuredShoe from "/images/featured_shoe.png"
+
 const OfferBanner = function () {
   return (
     <section className="offer-banner">
       <div className="offer-banner__media">
-        <ImagePlaceholder className="offer-banner__image" label="Featured Shoe" ratio="1/1" />
+        
+    <img src = {featuredShoe} 
+    alt="Featured Shoe" loading = 'lazy' />
+
       </div>
       <div className="offer-banner__content">
         <h2 className="offer-banner__heading">Get 15% Off</h2>

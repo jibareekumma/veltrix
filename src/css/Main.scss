@@ -9,18 +9,24 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  letter-spacing: 1px;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+
+@font-face {
+  font-family: yanoke;
+  src: url(/public/fonts/yanone.ttf);
+}
+
 body {
-  font-family: $font-primary;
+  font-family: yanoke;
   background-color: $color-white;
   color: $color-black;
 }
-
 a {
   text-decoration: none;
   color: inherit;

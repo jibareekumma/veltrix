@@ -1,1 +1,54 @@
-/*# sourceMappingURL=OfferBanner.css.map */
+.offer-banner {
+  background-color: rgb(58, 71, 65);
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  border: 2px solid black;
+}
+@media (min-width: 768px) {
+  .offer-banner {
+    flex-direction: row;
+    justify-content: center;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+.offer-banner__media {
+  width: 260px;
+}
+.offer-banner__content {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .offer-banner__content {
+    text-align: left;
+  }
+}
+.offer-banner__heading {
+  font-size: 2.4rem;
+  color: rgb(14, 19, 17);
+}
+.offer-banner__subheading {
+  font-size: 1.6rem;
+  color: rgb(24, 32, 29);
+  margin: 10px 0;
+}
+.offer-banner__tag {
+  font-style: italic;
+  color: rgb(24, 32, 29);
+}
+.offer-banner__cta {
+  display: inline-block;
+  background-color: rgb(14, 19, 17);
+  color: rgb(245, 183, 0);
+  padding: 12px 30px;
+  border-radius: 999px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+.offer-banner__cta:hover {
+  background-color: rgb(24, 32, 29);
+}/*# sourceMappingURL=OfferBanner.css.map */

@@ -2,14 +2,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  letter-spacing: 1px;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+@font-face {
+  font-family: yanoke;
+  src: url(/public/fonts/yanone.ttf);
+}
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: yanoke;
   background-color: rgb(238, 243, 240);
   color: rgb(14, 19, 17);
 }

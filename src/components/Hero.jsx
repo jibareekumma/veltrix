@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import ImagePlaceholder from "./ImagePlaceholder/ImagePlaceholder";
 import "../css/Hero.css";
 
+
+import heroShoe from "/images/hero_shoe.png"
+
 const Hero = function () {
   return (
     <section className="hero">
@@ -20,7 +23,9 @@ const Hero = function () {
           </Link>
         </div>
         <div className="hero__media">
-          <ImagePlaceholder className="hero__image" label="Hero Shoe" ratio="4/3" />
+          <img  
+          src = {heroShoe}
+          alt="Hero Shoe"  loading="lazy"/>
         </div>
       </div>
     </section>

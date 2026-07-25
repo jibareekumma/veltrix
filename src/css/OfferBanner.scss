@@ -1,8 +1,8 @@
 
 
 
-@import "../../styles/variables";
-@import "../../styles/mixins";
+@import "../css/Variable";
+@import "../css/Mixings";
 
 .offer-banner {
   background-color: $color-gray;
@@ -11,6 +11,7 @@
   flex-direction: column;
   gap: 30px;
   align-items: center;
+  border: 2px solid black;
 
   @include desktop {
     flex-direction: row;
