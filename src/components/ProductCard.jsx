@@ -1,8 +1,12 @@
 
 
+
 import { Link } from "react-router-dom";
 import ImagePlaceholder from "./ImagePlaceholder/ImagePlaceholder";
 import "../css/ProductCard.css";
+
+
+
 
 const ProductCard = function ({ product }) {
   const fullStars = Math.floor(product.rating);
@@ -10,7 +14,8 @@ const ProductCard = function ({ product }) {
 
   return (
     <Link to={`/product/${product.id}`} className="product-card">
-      <ImagePlaceholder className="product-card__image" label={product.title} ratio="1/1" />
+       <img src={product.image} alt={product.title} 
+       className="product-card__image" />
       <h4 className="product-card__title">{product.title}</h4>
       <p className="product-card__price">${product.price.toFixed(2)}</p>
       <div className="product-card__rating">

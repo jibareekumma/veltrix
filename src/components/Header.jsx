@@ -13,7 +13,8 @@ import mainLogo from "/icons/main_logo.png"
 
 const Header = function () {
   const { cartCount } = useCart();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = 
+    useState(false);
 
   const toggleMenu = function () {
     setIsMenuOpen(!isMenuOpen);
@@ -26,11 +27,13 @@ const Header = function () {
           <img src = {mainLogo} 
           alt="main-company logo" />
         </div>
+
         <nav className={`header__nav ${isMenuOpen ? "header__nav--open" : ""}`}>
           <ul className="header__nav-list">
             <li className="header__nav-item">
               <Link to="/">Home</Link>
             </li>
+            
             <li className="header__nav-item">
               <Link to="/products">Shop</Link>
             </li>

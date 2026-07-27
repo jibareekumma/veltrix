@@ -10,7 +10,15 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 .product-card__image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 4px;
   margin-bottom: 12px;
+  display: block;
 }
 .product-card__title {
   font-size: 0.9rem;
