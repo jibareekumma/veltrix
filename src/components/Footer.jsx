@@ -10,7 +10,8 @@ const Footer = function () {
         <div className="footer__brand">
           <h2 className="footer__logo">STRYDE</h2>
           <p className="footer__text">
-            Footwear built for movement. Subscribe for early access to new drops and offers.
+            Footwear built for movement. 
+            Subscribe for early access to new drops and offers.
           </p>
           <form className="footer__newsletter">
             <input type="email" placeholder="Your Email Address" className="footer__input" />
@@ -22,9 +23,11 @@ const Footer = function () {
         <div className="footer__column" id="contact">
           <h3 className="footer__heading">Contact Us</h3>
           <ul className="footer__list">
-            <li>Plot 16A George Anele Estate, Victoria Island, Lagos</li>
-            <li>+(234) 803 891 5702</li>
-            <li>info@stryde.com.ng</li>
+            <li>23 Christ Ave, off Aker road,
+              Iwofe, Port Harcourt
+            </li>
+            <li>+234 913 0330 586</li>
+            <li>jibareekuumma@gmail.com</li>
           </ul>
         </div>
         <div className="footer__column">

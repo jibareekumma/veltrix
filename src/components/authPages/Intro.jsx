@@ -26,14 +26,16 @@ const Intro = function () {
         </header>
 
         <div className="intro__content">
-          <span className="intro__eyebrow">— Welcome To</span>
+          <span className="intro__eyebrow"> ~Welcome To</span>
           <h1 className="intro__title">
             Engineered
             <br />
             <span className="intro__title-accent">To Move</span>
           </h1>
           <p className="intro__text">
-            Performance meets precision. Innovative design for every step. Built to move. Built to stand out.
+            Performance meets precision. 
+            Innovative design for every step. 
+            Built to move. Built to stand out.
           </p>
 
           <div className="intro__actions">

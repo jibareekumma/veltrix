@@ -49,7 +49,8 @@ const CategorySlider = function () {
             >
               <img src = {category.image} 
               alt="Images Of Shoe" loading="lazy"/>
-              <span className="category-slider__label">{category.label}</span>
+              <span className="category-slider__label">{category.label}
+              </span>
             </div>
           );
         })}
