@@ -1,0 +1,261 @@
+
+
+
+@import "../css/Variable";
+@import "../css/Mixings";
+
+.intro {
+  min-height: 100vh;
+  @include flex-center;
+//   padding: 20px;
+//   background-color: $color-black;
+}
+
+.intro__panel {
+  width: 100%;
+//   max-width: 900px;
+  min-height: 780px;
+//   border-radius: $radius-md;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-image: url("/bg/veltrix-bg(mbl).png");
+  background-size: cover;
+  background-position: center;
+
+  @include desktop {
+    // max-width: 1200px;
+    background-image: url("/bg/veltrix-bg(dsk).png");
+  }
+}
+
+.intro__header {
+  @include flex-between;
+  padding: 24px 24px 0;
+}
+
+.intro__logo {
+  height: 28px;
+
+  @include desktop {
+    height: 32px;
+  }
+}
+
+.intro__nav {
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.intro__nav-list {
+  display: flex;
+  gap: 30px;
+
+  li a {
+    color: $color-text-light;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+}
+
+.intro__cart {
+  display: none;
+  position: relative;
+  color: $color-text-light;
+
+  @include desktop {
+    @include flex-center;
+  }
+}
+
+.intro__cart-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.intro__cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: $color-yellow;
+  color: $color-black;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: $radius-full;
+  @include flex-center;
+}
+
+.intro__content {
+  padding: 40px 24px 32px;
+  max-width: 420px;
+
+  @include desktop {
+    padding: 60px 60px 40px;
+  }
+}
+
+.intro__eyebrow {
+  display: inline-block;
+  color: $color-yellow;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.intro__title {
+  font-size: 2.2rem;
+  line-height: 1.15;
+  font-weight: 800;
+  color: $color-text-light;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+
+  @include desktop {
+    font-size: 3.2rem;
+  }
+}
+
+.intro__title-accent {
+  color: $color-yellow;
+}
+
+.intro__text {
+  color: $color-text-muted;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 26px;
+
+  @include desktop {
+    font-size: 0.95rem;
+  }
+}
+
+.intro__actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.intro__btn {
+  flex: 1;
+  min-width: 130px;
+  @include flex-between;
+  padding: 14px 18px;
+  border-radius: $radius-sm;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background-color $transition-base, color $transition-base, border-color $transition-base;
+
+  &--primary {
+    background-color: $color-yellow;
+    color: $color-black;
+
+    &:hover {
+      background-color: $color-yellow-light;
+    }
+  }
+
+  &--outline {
+    border: 1px solid $color-text-light;
+    color: $color-text-light;
+
+    &:hover {
+      border-color: $color-yellow;
+      color: $color-yellow;
+    }
+  }
+}
+
+.intro__btn-arrow {
+  font-size: 1rem;
+}
+
+.intro__divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 18px 0;
+  color: $color-text-muted;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: $color-charcoal;
+  }
+}
+
+.intro__guest {
+  @include flex-center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid $color-charcoal;
+  border-radius: $radius-sm;
+  color: $color-text-light;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+  transition: border-color $transition-base;
+
+  &:hover {
+    border-color: $color-yellow;
+  }
+}
+
+.intro__guest-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.intro__features {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.intro__feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: $color-text-muted;
+  font-size: 0.65rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  width: 80px;
+}
+
+.intro__feature-icon {
+  width: 26px;
+  height: 26px;
+  color: $color-yellow;
+}
+
+.intro__copyright {
+  color: $color-text-muted;
+  font-size: 0.7rem;
+}
