@@ -1,0 +1,261 @@
+
+
+
+@import "../css/Variable";
+@import "../css/Mixings";
+
+.register {
+  min-height: 100vh;
+  @include flex-center;
+}
+
+.register__panel {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  background-image: url("/bg/veltrix-bg(mbl).png");
+  background-size: cover;
+  background-position: center;
+
+  @include desktop {
+    background-image: url("/bg/veltrix-bg(dsk).png");
+  }
+}
+
+.register__content {
+  width: 100%;
+  max-width: 460px;
+  padding: 24px 24px 32px;
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    padding: 50px 60px;
+  }
+}
+
+.register__header {
+  @include flex-between;
+  margin-bottom: 32px;
+
+}
+
+.register__back {
+  width: 34px;
+  height: 34px;
+
+  border-radius: $radius-full;
+  border: 1px solid $color-charcoal;
+  color: $color-text-light;
+  @include flex-center;
+  transition: border-color $transition-base;
+
+  &:hover {
+    border-color: $color-yellow;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.register__back-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.register__logo {
+  height: 26px;
+
+  @include desktop {
+    height: 30px;
+  }
+}
+
+.register__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: $color-text-light;
+  margin-bottom: 1rem;
+ 
+
+  @include desktop {
+    font-size: 1.8rem;
+  }
+}
+
+.register__subtitle {
+  color: $color-text-muted;
+  font-size: 0.85rem;
+  margin-bottom: 26px;
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.register__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.register__label {
+  color: $color-text-light;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.register__input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.register__input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: $radius-sm;
+  border: 1px solid $color-charcoal;
+  background-color: rgba(255, 255, 255, 0.04);
+  color: $color-text-light;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  outline: none;
+  font-family: yanoke;
+  transition: border-color $transition-base;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    border-color: $color-yellow;
+  }
+}
+
+.register__toggle-visibility {
+  position: absolute;
+  right: 14px;
+  color: $color-text-muted;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-yellow;
+  }
+}
+
+.register__toggle-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.register__error {
+  color: $color-yellow-light;
+  font-size: 0.8rem;
+}
+
+.register__submit {
+  @include flex-between;
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: $radius-sm;
+  background-color: $color-yellow;
+  color: $color-black;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background-color $transition-base;
+  margin-top: 4px;
+
+  &:hover {
+    background-color: $color-yellow-light;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.register__submit-arrow {
+  font-size: 1rem;
+}
+
+.register__divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 22px 0;
+  color: $color-text-muted;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: $color-charcoal;
+  }
+}
+
+.register__social {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.register__social-btn {
+  @include flex-center;
+  gap: 10px;
+  width: 100%;
+  padding: 13px 18px;
+  border: 1px solid $color-charcoal;
+  border-radius: $radius-sm;
+  color: $color-text-light;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: border-color $transition-base;
+
+  &:hover {
+    border-color: $color-yellow;
+  }
+}
+
+.register__social-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.register__footer-text {
+  text-align: center;
+  color: $color-text-muted;
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+
+  a {
+    color: $color-yellow;
+    font-weight: 600;
+  }
+}
+
+.register__copyright {
+  color: $color-text-muted;
+  font-size: 0.7rem;
+  text-align: center;
+
+  @include desktop {
+    text-align: left;
+  }
+}
+
+input{
+    font-size: 5rem;
+}

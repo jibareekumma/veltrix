@@ -14,7 +14,8 @@ const Footer = function () {
             Subscribe for early access to new drops and offers.
           </p>
           <form className="footer__newsletter">
-            <input type="email" placeholder="Your Email Address" className="footer__input" />
+            <input type="email" placeholder="Your Email Address" 
+            className="footer__input" />
             <button type="submit" className="footer__button">
               Subscribe
             </button>

@@ -1,11 +1,14 @@
 
 
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import mainLogo from "/icons/main_logo.png";
 import "../../css/Intro.css";
 
 const Intro = function () {
+
+const navigate = useNavigate();
+
   return (
     <section className="intro">
       <div className="intro__panel">
@@ -39,14 +42,20 @@ const Intro = function () {
           </p>
 
           <div className="intro__actions">
-            <Link to="/home" className="intro__btn intro__btn--primary">
+            <div to="/home" 
+            className="intro__btn intro__btn--primary"
+            onClick={() => navigate('/register')}
+            >
               Sign Up
               <span className="intro__btn-arrow">→</span>
-            </Link>
-            <Link to="/home" className="intro__btn intro__btn--outline">
+            </div>
+            <div to="/home" 
+            className="intro__btn intro__btn--outline"
+            onClick = {() => navigate('/login')}
+            >
               Log In
               <span className="intro__btn-arrow">→</span>
-            </Link>
+            </div>
           </div>
 
           <div className="intro__divider">
