@@ -5,6 +5,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import mainLogo from "/icons/main_logo.png";
+
+import { useAuth } from "../../context/AuthContext";
 import "../../css/Register.css";
 
 const Register = function () {
@@ -17,17 +19,21 @@ const Register = function () {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = function (event) {
-    event.preventDefault();
-    setError("");
+  const { register } = useAuth();
 
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      return;
-    }
+  const handleSubmit = async function (event) {
+  event.preventDefault();
+  setError("");
 
-    console.log({ name, email, password });
-  };
+  try {
+    await register(name, email, password, confirmPassword);
+    navigate("/home");
+  } catch (submitError) {
+    setError(submitError.message);
+  }
+};
+
+
 
   return (
     <section className="register">

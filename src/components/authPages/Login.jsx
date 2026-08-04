@@ -5,6 +5,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import mainLogo from "/icons/main_logo.png";
+
+import { useAuth } from "../../context/AuthContext";
 import "../../css/Register.css";
 
 const Login = function () {
@@ -14,11 +16,19 @@ const Login = function () {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = function (event) {
-    event.preventDefault();
-    setError("");
-    console.log({ email, password });
-  };
+  const { login: loginUser } = useAuth();
+
+  const handleSubmit = async function (event) {
+  event.preventDefault();
+  setError("");
+
+  try {
+    await loginUser(email, password);
+    navigate("/home");
+  } catch (submitError) {
+    setError(submitError.message);
+  }
+};
 
   return (
     <section className="register">
