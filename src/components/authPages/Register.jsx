@@ -21,12 +21,17 @@ const Register = function () {
 
   const { register } = useAuth();
 
-  const handleSubmit = async function (event) {
+ const handleSubmit = async function (event) {
   event.preventDefault();
   setError("");
 
+  if (password !== confirmPassword) {
+    setError("Passwords do not match");
+    return;
+  }
+
   try {
-    await register(name, email, password, confirmPassword);
+    await register(name, email, password);
     navigate("/home");
   } catch (submitError) {
     setError(submitError.message);
