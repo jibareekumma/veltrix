@@ -51,9 +51,19 @@
   border-radius: 4px;
   margin-bottom: 16px;
   margin-right: 10px;
+  cursor: pointer;
+}
+.product-details__size {
+  font-size: 0.9rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 .product-details__quantity {
-  width: 70px;
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.2rem;
+  padding-left: 0.9rem;
 }
 .product-details__cta {
   display: block;
@@ -77,4 +87,11 @@
   font-size: 0.9rem;
   line-height: 1.6;
   color: rgb(24, 32, 29);
+}
+
+.size-error-message {
+  color: red;
+  letter-spacing: 0.5px;
+  margin-top: -0.5rem;
+  font-style: italic;
 }/*# sourceMappingURL=ProductDetails.css.map */

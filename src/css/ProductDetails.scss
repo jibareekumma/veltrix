@@ -63,10 +63,21 @@
     border-radius: $radius-sm;
     margin-bottom: 16px;
     margin-right: 10px;
+    cursor: pointer;
+  }
+
+  &__size{
+    font-size: 0.9rem;
+     appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   }
 
   &__quantity {
-    width: 70px;
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.2rem;
+    padding-left: 0.9rem;
   }
 
   &__cta {
@@ -95,4 +106,12 @@
     line-height: 1.6;
     color: $color-charcoal;
   }
+}
+
+
+.size-error-message{
+  color: red;
+  letter-spacing: 0.5px;
+  margin-top: -0.5rem;
+  font-style: italic;
 }

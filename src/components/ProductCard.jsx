@@ -29,7 +29,8 @@ const ProductCard = function ({ product }) {
           }
           if (index === fullStars && hasHalfStar) {
             return (
-              <span key={index} className="product-card__star product-card__star--half">
+              <span key={index} className="product-card__star 
+              product-card__star--half">
                 ★
               </span>
             );

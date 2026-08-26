@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import ImagePlaceholder from "./ImagePlaceholder/ImagePlaceholder";
+
 import ProductGrid from "./ProductGrid";
 import products from "../data/products";
 import { useCart } from "../context/CartContext";
@@ -16,6 +16,7 @@ const ProductDetails = function () {
   });
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [sizeError, setSizeError] = useState("")
 
   if (!product) {
     return <main className="product-details product-details--empty">Product not found</main>;
@@ -28,20 +29,27 @@ const ProductDetails = function () {
     .slice(0, 4);
 
   const handleAddToCart = function () {
-    addToCart(product, quantity);
-  };
+  if (!size) {
+    setSizeError("Size is required before adding to cart")
+    return;
+  }
+  setSizeError("")
+  addToCart(product, quantity, { size, color: product.color || null });
+};
 
   return (
     <main className="product-details">
       <div className="product-details__main">
-        <div className="product-details__gallery">
-          <ImagePlaceholder className="product-details__image" label={product.title} ratio="1/1" />
-          <div className="product-details__thumbs">
-            <ImagePlaceholder className="product-details__thumb" ratio="1/1" />
-            <ImagePlaceholder className="product-details__thumb" ratio="1/1" />
-            <ImagePlaceholder className="product-details__thumb" ratio="1/1" />
-          </div>
-        </div>
+        
+      <div className="product-details__gallery">
+  <img src={product.image} alt={product.title} className="product-details__image" />
+  <div className="product-details__thumbs">
+    <img src={product.image} alt={product.title} className="product-details__thumb" />
+    <img src={product.image} alt={product.title} className="product-details__thumb" />
+    <img src={product.image} alt={product.title} className="product-details__thumb" />
+  </div>
+</div>
+
         <div className="product-details__info">
           <h1 className="product-details__title">{product.title}</h1>
           <p className="product-details__price">${product.price.toFixed(2)}</p>
@@ -68,6 +76,10 @@ const ProductDetails = function () {
               setQuantity(Number(event.target.value));
             }}
           />
+
+          {sizeError && 
+            <p className="size-error-message">{sizeError}</p>
+          }
           <button className="product-details__cta" onClick={handleAddToCart}>
             Add to Cart
           </button>
