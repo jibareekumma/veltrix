@@ -1,6 +1,5 @@
 
 
-
 @import "../css/Variable";
 @import "../css/Mixings";
 
@@ -51,6 +50,38 @@
     @include desktop {
       font-size: 2rem;
     }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: $color-text-light;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-full;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color $transition-base;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  &__nav--prev {
+    left: 16px;
+  }
+
+  &__nav--next {
+    right: 16px;
   }
 
   &__dots {

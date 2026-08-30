@@ -46,6 +46,34 @@
     font-size: 2rem;
   }
 }
+.category-slider__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: rgb(238, 243, 240);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+.category-slider__nav:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.category-slider__nav--prev {
+  left: 16px;
+}
+.category-slider__nav--next {
+  right: 16px;
+}
 .category-slider__dots {
   display: flex;
   justify-content: center;

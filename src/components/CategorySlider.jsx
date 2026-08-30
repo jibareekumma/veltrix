@@ -35,6 +35,18 @@ const CategorySlider = function () {
     setActiveIndex(index);
   };
 
+  const goToPrevious = function () {
+  setActiveIndex(function (prevIndex) {
+    return prevIndex === 0 ? categories.length - 1 : prevIndex - 1;
+  });
+};
+
+const goToNext = function () {
+  setActiveIndex(function (prevIndex) {
+    return (prevIndex + 1) % categories.length;
+  });
+};
+
   return (
     <section className="category-slider">
       <h2 className="section-title">Featured Categories</h2>
@@ -54,6 +66,23 @@ const CategorySlider = function () {
             </div>
           );
         })}
+
+        <button
+  type="button"
+  className="category-slider__nav category-slider__nav--prev"
+  onClick={goToPrevious}
+  aria-label="Previous category"
+>
+  ‹
+</button>
+<button
+  type="button"
+  className="category-slider__nav category-slider__nav--next"
+  onClick={goToNext}
+  aria-label="Next category"
+>
+  ›
+</button>
       </div>
       <div className="category-slider__dots">
         {categories.map(function (category, index) {
