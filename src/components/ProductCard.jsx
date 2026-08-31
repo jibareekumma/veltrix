@@ -2,11 +2,7 @@
 
 
 import { Link } from "react-router-dom";
-import ImagePlaceholder from "./ImagePlaceholder/ImagePlaceholder";
 import "../css/ProductCard.css";
-
-
-
 
 const ProductCard = function ({ product }) {
   const fullStars = Math.floor(product.rating);
@@ -14,8 +10,11 @@ const ProductCard = function ({ product }) {
 
   return (
     <Link to={`/product/${product.id}`} className="product-card">
-       <img src={product.image} alt={product.title} 
-       className="product-card__image" />
+      {product.image ? (
+        <img src={product.image} alt={product.title} className="product-card__image" />
+      ) : (
+        <div className="product-card__image product-card__image--blank"></div>
+      )}
       <h4 className="product-card__title">{product.title}</h4>
       <p className="product-card__price">${product.price.toFixed(2)}</p>
       <div className="product-card__rating">
@@ -29,8 +28,7 @@ const ProductCard = function ({ product }) {
           }
           if (index === fullStars && hasHalfStar) {
             return (
-              <span key={index} className="product-card__star 
-              product-card__star--half">
+              <span key={index} className="product-card__star product-card__star--half">
                 ★
               </span>
             );
