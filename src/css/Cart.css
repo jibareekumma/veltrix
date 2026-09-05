@@ -71,20 +71,19 @@
 .cart-page__item-image {
   width: 70px;
   aspect-ratio: 1/1;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border: 1px solid rgb(58, 71, 65);
   border-radius: 4px;
-}
-.cart-page .cart-page__item-meta {
-  display: block;
-  color: rgb(24, 32, 29);
-  font-size: 0.8rem;
 }
 .cart-page__item-name {
   font-size: 0.95rem;
   font-weight: 600;
   color: rgb(14, 19, 17);
+}
+.cart-page__item-meta {
+  display: block;
+  color: rgb(24, 32, 29);
+  font-size: 0.8rem;
 }
 .cart-page__item-price {
   color: rgb(24, 32, 29);
@@ -93,7 +92,6 @@
 .cart-page__quantity {
   width: 50px;
   height: 32px;
-  border: 2px solid red;
   text-align: center;
   border: 1px solid rgb(24, 32, 29);
   border-radius: 4px;
@@ -125,9 +123,4 @@
 }
 .cart-page__checkout:hover {
   background-color: rgb(255, 215, 79);
-}
-
-.cart-page__quantity {
-  font-size: 1rem;
-  font-style: italic;
 }/*# sourceMappingURL=Cart.css.map */

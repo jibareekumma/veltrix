@@ -1,5 +1,3 @@
-
-
 import Hero from "./Hero";
 import CategorySlider from "./CategorySlider";
 import ProductGrid from "./ProductGrid";

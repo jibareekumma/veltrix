@@ -1,6 +1,3 @@
-
-
-
 import { useState } from "react";
 import ProductCard from "./ProductCard";
 import "../css/ProductGrid.css";
