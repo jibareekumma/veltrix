@@ -162,11 +162,10 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  border: 2px solid blue;
   transition: background-color $transition-base, color $transition-base, border-color $transition-base;
 
   &--primary {
-    background-color: blue;
+    background-color: $color-yellow;
     color: $color-black;
 
 

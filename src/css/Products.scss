@@ -59,3 +59,39 @@
     }
   }
 }
+
+.products-page__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 16px;
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 8px;
+}
+.products-page__filter {
+  padding: 8px 12px;
+  border: 1px solid rgb(58, 71, 65);
+  border-radius: 4px;
+  font: inherit;
+  background-color: #ffffff;
+}
+.products-page__filter--price {
+  width: 90px;
+}
+.products-page__filter--checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.products-page__filter-clear {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 999px;
+  background-color: rgb(14, 19, 17);
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+}

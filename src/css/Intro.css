@@ -166,11 +166,10 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  border: 2px solid blue;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 .intro__btn--primary {
-  background-color: blue;
+  background-color: rgb(245, 183, 0);
   color: rgb(14, 19, 17);
 }
 .intro__btn--primary:hover {
