@@ -25,7 +25,8 @@
 .product-details__image {
   width: 100%;
   aspect-ratio: 1/1;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border: 1px solid rgb(58, 71, 65);
   border-radius: 4px;
 }
@@ -37,7 +38,8 @@
 .product-details__thumb {
   width: 90px;
   aspect-ratio: 1/1;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border: 1px solid rgb(58, 71, 65);
   border-radius: 4px;
   cursor: pointer;
@@ -78,12 +80,6 @@
 }
 .product-details__cta:hover {
   background-color: rgb(255, 215, 79);
-}
-.product-details__error {
-  color: rgb(220, 38, 38);
-  font-size: 0.85rem;
-  margin-top: -20px;
-  margin-bottom: 20px;
 }
 .product-details__section-heading {
   font-size: 1.1rem;

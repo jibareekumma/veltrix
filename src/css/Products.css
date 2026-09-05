@@ -48,8 +48,6 @@
   justify-content: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  background-color: transparent;
-  font: inherit;
 }
 .products-page__page-btn--active, .products-page__page-btn:hover {
   background-color: rgb(245, 183, 0);
