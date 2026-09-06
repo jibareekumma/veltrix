@@ -2,7 +2,7 @@
 
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import "../css/Header.css";
 
@@ -20,10 +20,21 @@ const Header = function () {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = function(){
+    setIsMenuOpen(false)
+  }
+
+
+
+
+  const navigate = useNavigate();
+
   return (
     <header className="header">
       <div className="header__inner">
-        <div to="/" className="header__logo">
+        <div to="/" className="header__logo"
+          onClick = {() => navigate('/home')}
+        >
           <img src = {mainLogo} 
           alt="main-company logo" />
         </div>
@@ -31,14 +42,18 @@ const Header = function () {
         <nav className={`header__nav ${isMenuOpen ? "header__nav--open" : ""}`}>
           <ul className="header__nav-list">
             <li className="header__nav-item">
-              <Link to="/">Home</Link>
+              <Link
+                to = '/home' onClick = {closeMenu}
+              >Home</Link>
             </li>
             
             <li className="header__nav-item">
-              <Link to="/products">Shop</Link>
+              <Link to="/products" onClick = {closeMenu}
+              >Shop</Link>
             </li>
             <li className="header__nav-item">
-              <Link to="/#contact">Contact</Link>
+              <Link to="/#contact" onClick = {closeMenu}
+              >Contact</Link>
             </li>
           </ul>
         </nav>

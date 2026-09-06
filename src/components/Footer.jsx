@@ -8,7 +8,7 @@ const Footer = function () {
     <footer className="footer">
       <div className="footer__inner">
         <div className="footer__brand">
-          <h2 className="footer__logo">STRYDE</h2>
+          <h2 className="footer__logo">VELTRIX</h2>
           <p className="footer__text">
             Footwear built for movement. 
             Subscribe for early access to new drops and offers.
