@@ -52,7 +52,7 @@ const Header = function () {
               >Shop</Link>
             </li>
             <li className="header__nav-item">
-              <Link to="/#contact" onClick = {closeMenu}
+              <Link to="/contact" onClick = {closeMenu}
               >Contact</Link>
             </li>
           </ul>

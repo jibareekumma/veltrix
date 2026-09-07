@@ -21,3 +21,9 @@ $radius-md: 8px;
 $radius-full: 999px;
 
 $transition-base: 0.3s ease;
+
+$filter-yellow: brightness(0) 
+saturate(100%) invert(67%) 
+sepia(100%) saturate(1000%) 
+hue-rotate(0deg) 
+brightness(100%) contrast(100%);

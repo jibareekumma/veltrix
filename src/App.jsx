@@ -7,10 +7,13 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Products from "./pages/Products";
 import ProductDetails from "./components/ProductDetails";
+
+
 import Cart from "./pages/Cart";
 import Intro from "./components/authPages/Intro";
 import Register from "./components/authPages/Register";
 import Login from "./components/authPages/Login";
+import Contact from "./components/Contact";
 
 const standalonePaths = ["/", "/register", "/login"];
 
@@ -29,6 +32,7 @@ const App = function () {
         <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path = "/contact" element = {<Contact/>}/>
       </Routes>
       {!isStandalonePage && <Footer />}
     </>
