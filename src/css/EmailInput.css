@@ -1,50 +1,111 @@
+@font-face {
+  font-family: contrail;
+  src: url(/fonts/ContrailOne-Regular.ttf);
+}
 .email-input-container {
-  min-height: 100vh;
   display: flex;
+  height: 100vh;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background-color: black;
+  padding-top: 2rem;
+  position: relative;
+  background-image: url("/bg/veltrix-bg(mbl).png");
+  background-size: cover;
+  background-position: center;
+}
+@media (min-width: 768px) {
+  .email-input-container {
+    background-image: url("/bg/veltrix-bg(dsk).png");
+  }
+}
+.email-input-container .register__header {
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .email-input-container .reset-card {
-  background-color: transparent;
-  border-radius: 12px;
-  padding: 40px 30px;
-  max-width: 420px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding: 0 20px;
+  z-index: 2;
+  background-color: transparent;
 }
 .email-input-container .reset-card h2 {
-  color: #fff;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgb(245, 183, 0);
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
   letter-spacing: 1px;
 }
+.email-input-container .reset-card h2 span {
+  display: inline-block;
+  width: 2.5rem;
+  height: 0.15rem;
+  background-color: rgb(245, 183, 0);
+}
 .email-input-container .reset-card .reset-content h3 {
-  color: #fff;
-  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 2.3rem;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 0.8rem;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+@media (min-width: 768px) {
+  .email-input-container .reset-card .reset-content h3 {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+  }
+}
+.email-input-container .reset-card .reset-content h3 span {
+  color: white;
+}
+.email-input-container .reset-card .reset-content h3 mark {
+  display: inline-block;
+  background-color: transparent;
+  font-family: contrail;
+  color: rgb(245, 183, 0);
+  font-weight: 400;
 }
 .email-input-container .reset-card .reset-content p {
-  color: #999;
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 28px;
+  max-width: 350px;
+  color: rgb(238, 243, 240);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.35rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
 }
 .email-input-container .reset-card .reset-content .form-group {
   width: 100%;
+  margin-bottom: 1.4rem;
 }
 .email-input-container .reset-card .reset-content .input-box {
-  height: 3.5rem;
+  width: 100%;
+  height: 3.7rem;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1rem;
-  border: 0.5px solid #777;
-  padding: 0.3rem;
-  border-radius: 5px;
+  gap: 0.8rem;
+  padding: 0.45rem 0.8rem;
+  border: 0.5px solid #666;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.25);
+  transition: border 0.2s ease;
+}
+.email-input-container .reset-card .reset-content .input-box:focus-within {
+  border-color: rgb(245, 183, 0);
 }
 .email-input-container .reset-card .reset-content .input-box img {
   width: 20px;
@@ -53,76 +114,183 @@
      object-fit: contain;
   flex-shrink: 0;
   filter: brightness(0) invert(1);
+  opacity: 0.8;
 }
 .email-input-container .reset-card .reset-content .input-content {
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 0.3rem;
+  gap: 3px;
 }
 .email-input-container .reset-card .reset-content .input-content label {
-  font-size: 0.9rem;
-  font-weight: 400;
   color: white;
-  letter-spacing: 1px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+.email-input-container .reset-card .reset-content .input-content label span {
+  color: rgb(245, 183, 0);
 }
 .email-input-container .reset-card .reset-content .input-content input {
+  width: 100%;
   outline: none;
+  border: none;
+  border-radius: 0;
   background: transparent;
   padding: 0;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
+  height: 1.1rem;
   color: white;
-  border: none;
-  height: -moz-fit-content;
-  height: fit-content;
-  border-radius: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
 }
 .email-input-container .reset-card .reset-content .input-content input::-moz-placeholder {
   color: #777;
+  opacity: 1;
 }
 .email-input-container .reset-card .reset-content .input-content input::placeholder {
   color: #777;
+  opacity: 1;
 }
-.email-input-container .reset-card .reset-content .send-btn {
+.email-input-container .reset-card .reset-content .input-content input:focus {
+  outline: none;
+}
+.email-input-container .reset-card .reset-content .send-code-btn {
   width: 100%;
-  padding: 14px;
-  background-color: #fff;
-  color: #000;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+  margin-bottom: 1.5rem;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
+  border-radius: 6px;
+  background-color: rgb(245, 183, 0);
+  color: #050505;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
-.email-input-container .reset-card .reset-content .send-btn:hover {
-  background-color: #e6e6e6;
+.email-input-container .reset-card .reset-content .send-code-btn span {
+  font-size: 1rem;
+  line-height: 1;
 }
-.email-input-container .reset-card .reset-content .send-btn:active {
-  transform: scale(0.98);
+.email-input-container .reset-card .reset-content .send-code-btn:hover {
+  background-color: rgb(255, 215, 79);
+  transform: translateY(-1px);
+}
+.email-input-container .reset-card .reset-content .send-code-btn:active {
+  transform: translateY(0);
+}
+.email-input-container .reset-card .reset-content .back-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: white;
+  font-size: 0.83rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.email-input-container .reset-card .reset-content .back-login span {
+  color: rgb(245, 183, 0);
+  font-size: 1rem;
+}
+.email-input-container .reset-card .reset-content .back-login:hover {
+  color: rgb(245, 183, 0);
+}
+.email-input-container .reset-card .reset-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 35px;
+  color: #777;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+.email-input-container .reset-card .reset-footer span:nth-child(even) {
+  color: rgb(245, 183, 0);
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
+  .email-input-container {
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-position: 65% center;
+  }
+  .email-input-container .register__header {
+    max-width: 550px;
+    padding: 0;
+  }
   .email-input-container .reset-card {
-    padding: 50px 40px;
-    max-width: 480px;
+    max-width: 550px;
+    justify-content: flex-start;
   }
   .email-input-container .reset-card h2 {
-    font-size: 26px;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    gap: 8px;
+  }
+  .email-input-container .reset-card h2 span {
+    width: 2rem;
+    height: 0.2rem;
   }
   .email-input-container .reset-card .reset-content h3 {
-    font-size: 20px;
+    font-size: 1.95rem;
+    margin-bottom: 14px;
+    line-height: 1.05;
   }
   .email-input-container .reset-card .reset-content p {
-    font-size: 15px;
+    max-width: 310px;
+    font-size: 0.9rem;
+    line-height: 1.15rem;
+    margin-bottom: 24px;
   }
-  .email-input-container .reset-card .reset-content .form-group input {
-    padding: 14px 18px;
-    font-size: 15px;
+  .email-input-container .reset-card .reset-content .form-group {
+    margin-bottom: 10px;
   }
-  .email-input-container .reset-card .reset-content .send-btn {
-    padding: 16px;
-    font-size: 17px;
+  .email-input-container .reset-card .reset-content .form-group .input-box {
+    height: 3.4rem;
+    padding: 0.4rem 0.7rem;
+    gap: 0.7rem;
+  }
+  .email-input-container .reset-card .reset-content .form-group .input-box img {
+    width: 17px;
+    height: 17px;
+  }
+  .email-input-container .reset-card .reset-content .form-group .input-content label {
+    font-size: 0.8rem;
+  }
+  .email-input-container .reset-card .reset-content .form-group .input-content input {
+    font-size: 0.75rem;
+    height: 1rem;
+  }
+  .email-input-container .reset-card .reset-content .send-code-btn {
+    height: 2.7rem;
+    margin-bottom: 14px;
+    font-size: 0.65rem;
+  }
+  .email-input-container .reset-card .reset-content .send-code-btn span {
+    font-size: 0.9rem;
+  }
+  .email-input-container .reset-card .reset-content .back-login {
+    font-size: 0.6rem;
+  }
+  .email-input-container .reset-card .reset-content .back-login span {
+    font-size: 0.7rem;
+  }
+  .email-input-container .reset-card .reset-footer {
+    margin-top: auto;
+    padding-top: 25px;
+    font-size: 0.45rem;
   }
 }/*# sourceMappingURL=EmailInput.css.map */

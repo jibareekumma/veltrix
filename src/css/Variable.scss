@@ -2,6 +2,8 @@
 // VELTRIX - Midnight Velocity
 // ===============================
 
+
+
 $color-black: rgb(14, 19, 17);
 $color-charcoal: rgb(24, 32, 29);
 $color-gray: rgb(58, 71, 65);
@@ -27,3 +29,6 @@ saturate(100%) invert(67%)
 sepia(100%) saturate(1000%) 
 hue-rotate(0deg) 
 brightness(100%) contrast(100%);
+
+
+$contrail: contrail;

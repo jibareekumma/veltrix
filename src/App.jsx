@@ -23,7 +23,7 @@ import NewPassword from "./components/authPages/NewPassword";
 import Success from "./components/authPages/Success";
 
 
-const standalonePaths = ["/", "/register", "/login"];
+const standalonePaths = ["/", "/register", "/login", "/emailInput", "/newPassword", "./success"];
 
 const App = function () {
   const location = useLocation();

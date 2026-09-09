@@ -10,7 +10,7 @@ import mainLogo from "/icons/main_logo.png";
 import EmailInput from "./EmailInput";
 
 import { useAuth } from "../../context/AuthContext";
-import "../../css/Register.css";
+  
 
 const Login = function () {
   const navigate = useNavigate();
