@@ -6,6 +6,9 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import mainLogo from "/icons/main_logo.png";
 
+
+import EmailInput from "./EmailInput";
+
 import { useAuth } from "../../context/AuthContext";
 import "../../css/Register.css";
 
@@ -88,7 +91,7 @@ const Login = function () {
             </div>
 
             <p className="register__footer-text register__footer-text--right">
-              <Link to="/forgot-password">Forgot password?</Link>
+              <Link to="/emailInput">Forgot password?</Link>
             </p>
 
             {error && <p className="register__error">{error}</p>}

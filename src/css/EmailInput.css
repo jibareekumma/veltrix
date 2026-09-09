@@ -1,0 +1,128 @@
+.email-input-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: black;
+}
+.email-input-container .reset-card {
+  background-color: transparent;
+  border-radius: 12px;
+  padding: 40px 30px;
+  max-width: 420px;
+  width: 100%;
+}
+.email-input-container .reset-card h2 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+.email-input-container .reset-card .reset-content h3 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.email-input-container .reset-card .reset-content p {
+  color: #999;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+.email-input-container .reset-card .reset-content .form-group {
+  width: 100%;
+}
+.email-input-container .reset-card .reset-content .input-box {
+  height: 3.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  border: 0.5px solid #777;
+  padding: 0.3rem;
+  border-radius: 5px;
+}
+.email-input-container .reset-card .reset-content .input-box img {
+  width: 20px;
+  height: 20px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+}
+.email-input-container .reset-card .reset-content .input-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.3rem;
+}
+.email-input-container .reset-card .reset-content .input-content label {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: white;
+  letter-spacing: 1px;
+}
+.email-input-container .reset-card .reset-content .input-content input {
+  outline: none;
+  background: transparent;
+  padding: 0;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: white;
+  border: none;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 0;
+}
+.email-input-container .reset-card .reset-content .input-content input::-moz-placeholder {
+  color: #777;
+}
+.email-input-container .reset-card .reset-content .input-content input::placeholder {
+  color: #777;
+}
+.email-input-container .reset-card .reset-content .send-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.email-input-container .reset-card .reset-content .send-btn:hover {
+  background-color: #e6e6e6;
+}
+.email-input-container .reset-card .reset-content .send-btn:active {
+  transform: scale(0.98);
+}
+
+@media (min-width: 769px) {
+  .email-input-container .reset-card {
+    padding: 50px 40px;
+    max-width: 480px;
+  }
+  .email-input-container .reset-card h2 {
+    font-size: 26px;
+  }
+  .email-input-container .reset-card .reset-content h3 {
+    font-size: 20px;
+  }
+  .email-input-container .reset-card .reset-content p {
+    font-size: 15px;
+  }
+  .email-input-container .reset-card .reset-content .form-group input {
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+  .email-input-container .reset-card .reset-content .send-btn {
+    padding: 16px;
+    font-size: 17px;
+  }
+}/*# sourceMappingURL=EmailInput.css.map */
