@@ -1,6 +1,8 @@
 
 
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { resetPassword } from "../../api/auth";
 
 import mainLogo from "/icons/main_logo.png";
 import lockIcon from "/icons/lock-icon.png";
@@ -8,9 +10,35 @@ import eyeIcon from "/icons/eye-icon.png";
 
 import "../../css/NewPassword.css";
 
-
 const NewPassword = function () {
   const navigate = useNavigate();
+  const email = localStorage.getItem("veltrix_reset_email") || "";
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async function (event) {
+    event.preventDefault();
+    setError("");
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      await resetPassword(email, password, confirmPassword);
+      localStorage.removeItem("veltrix_reset_email");
+      navigate("/success");
+    } catch (submitError) {
+      setError(submitError.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="new-password-container">
@@ -52,62 +80,74 @@ const NewPassword = function () {
             and include a mix of letters, numbers and symbols.
           </p>
 
-          <div className="form-group">
+          <form onSubmit={handleSubmit}>
 
-            <div className="input-box">
+            <div className="form-group">
 
-              <img src={lockIcon} alt="" />
+              <div className="input-box">
 
-              <div className="input-content">
+                <img src={lockIcon} alt="" />
 
-                <label htmlFor="password">
-                  New Password <span>*</span>
-                </label>
+                <div className="input-content">
 
-                <input
-                  id="password"
-                  type="password"
-                  placeholder="Enter new password"
-                />
+                  <label htmlFor="password">
+                    New Password <span>*</span>
+                  </label>
 
-              </div>
+                  <input
+                    id="password"
+                    type="password"
+                    placeholder="Enter new password"
+                    value={password}
+                    onChange={function (event) { setPassword(event.target.value); }}
+                    required
+                  />
 
-              <img src={eyeIcon} alt="" className="toggle-icon" />
+                </div>
 
-            </div>
-
-          </div>
-
-          <div className="form-group">
-
-            <div className="input-box">
-
-              <img src={lockIcon} alt="" />
-
-              <div className="input-content">
-
-                <label htmlFor="confirmPassword">
-                  Confirm Password
-                </label>
-
-                <input
-                  id="confirmPassword"
-                  type="password"
-                  placeholder="Confirm new password"
-                />
+                <img src={eyeIcon} alt="" className="toggle-icon" />
 
               </div>
 
-              <img src={eyeIcon} alt="" className="toggle-icon" />
+            </div>
+
+            <div className="form-group">
+
+              <div className="input-box">
+
+                <img src={lockIcon} alt="" />
+
+                <div className="input-content">
+
+                  <label htmlFor="confirmPassword">
+                    Confirm Password
+                  </label>
+
+                  <input
+                    id="confirmPassword"
+                    type="password"
+                    placeholder="Confirm new password"
+                    value={confirmPassword}
+                    onChange={function (event) { setConfirmPassword(event.target.value); }}
+                    required
+                  />
+
+                </div>
+
+                <img src={eyeIcon} alt="" className="toggle-icon" />
+
+              </div>
 
             </div>
 
-          </div>
+            {error && <p className="register__error">{error}</p>}
 
-          <button className="reset-btn" type="button">
-            RESET PASSWORD
-            <span>→</span>
-          </button>
+            <button className="reset-btn" type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "RESETTING..." : "RESET PASSWORD"}
+              <span>→</span>
+            </button>
+
+          </form>
 
           <Link to="/login" className="back-login">
             <span>←</span>

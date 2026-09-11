@@ -49,3 +49,51 @@ export const loginRequest = async function (email, password) {
 
   return data;
 };
+
+export const requestResetCode = async function (email) {
+  const response = await fetch(`${API_BASE}/password-reset/request/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(extractErrorMessage(data));
+  }
+
+  return data;
+};
+
+export const verifyResetCode = async function (email, code) {
+  const response = await fetch(`${API_BASE}/password-reset/verify/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, code }),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(extractErrorMessage(data));
+  }
+
+  return data;
+};
+
+export const resetPassword = async function (email, password, password2) {
+  const response = await fetch(`${API_BASE}/password-reset/confirm/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password, password2 }),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(extractErrorMessage(data));
+  }
+
+  return data;
+};

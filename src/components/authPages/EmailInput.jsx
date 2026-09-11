@@ -1,8 +1,8 @@
 
 
-
-import { Link } from "react-router-dom";
-import CodeAuth from "./CodeAuth";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { requestResetCode } from "../../api/auth";
 
 import mailIcon from "/icons/mail-icon.png";
 import mainLogo from "/icons/main_logo.png";
@@ -10,11 +10,34 @@ import mainLogo from "/icons/main_logo.png";
 import "../../css/EmailInput.css";
 
 const EmailInput = function () {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async function (event) {
+    event.preventDefault();
+    setError("");
+    setIsSubmitting(true);
+
+    try {
+      await requestResetCode(email);
+      localStorage.setItem("veltrix_reset_email", email);
+      navigate("/codeAuth");
+    } catch (submitError) {
+      setError(submitError.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="email-input-container">
 
         <div className="register__header">
-            <button type="button" className="register__back" onClick={function () { navigate(-1); }}>
+            <button type="button"
+            className="register__back"
+            onClick={function () { navigate(-1); }}>
               <svg viewBox="0 0 24 24" className="register__back-icon" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M15 6l-6 6 6 6" />
               </svg>
@@ -44,34 +67,43 @@ const EmailInput = function () {
             reset your password.
           </p>
 
-          <div className="form-group">
+          <form onSubmit={handleSubmit}>
 
-            <div className="input-box">
+            <div className="form-group">
 
-              <img src={mailIcon} alt="Email" />
+              <div className="input-box">
 
-              <div className="input-content">
+                <img src={mailIcon} alt="Email" />
 
-                <label htmlFor="email">
-                  Email Address
-                </label>
+                <div className="input-content">
 
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email address"
-                />
+                  <label htmlFor="email">
+                    Email Address
+                  </label>
+
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="Enter your email address"
+                    value={email}
+                    onChange={function (event) { setEmail(event.target.value); }}
+                    required
+                  />
+
+                </div>
 
               </div>
 
             </div>
 
-          </div>
+            {error && <p className="register__error">{error}</p>}
 
-          <button className="send-code-btn" type="button">
-            SEND CODE
-            <span>→</span>
-          </button>
+            <button className="send-code-btn" type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "SENDING..." : "SEND CODE"}
+              <span>→</span>
+            </button>
+
+          </form>
 
           <Link to="/login" className="back-login">
             <span>←</span>
@@ -89,10 +121,6 @@ const EmailInput = function () {
         </div>
 
       </div>
-
-      <Link to={'/codeAuth'}>Code Auth</Link>
-      <Link to={'/newPassword'}>New password</Link>
-      <Link to={'/success'}>Success</Link>
 
     </div>
   );
