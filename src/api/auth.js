@@ -97,3 +97,19 @@ export const resetPassword = async function (email, password, password2) {
 
   return data;
 };
+
+export const googleAuthRequest = async function (credential) {
+  const response = await fetch(`${API_BASE}/google/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ credential }),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(extractErrorMessage(data));
+  }
+
+  return data;
+};``

@@ -2,7 +2,8 @@
 
 
 import { createContext, useContext, useState, useEffect } from "react";
-import { registerRequest, loginRequest } from "../api/auth";
+import { registerRequest, loginRequest, googleAuthRequest} from "../api/auth";
+
 
 const AuthContext = createContext(null);
 
@@ -39,6 +40,16 @@ export const AuthProvider = function ({ children }) {
     return data.user;
   };
 
+
+  const loginWithGoogle = async function (credential) {
+  const data = await googleAuthRequest(credential);
+  localStorage.setItem("veltrix_access_token", data.tokens.access);
+  localStorage.setItem("veltrix_refresh_token", data.tokens.refresh);
+  localStorage.setItem("veltrix_user", JSON.stringify(data.user));
+  setUser(data.user);
+  return data.user;
+};
+
   const logout = function () {
     localStorage.removeItem("veltrix_access_token");
     localStorage.removeItem("veltrix_refresh_token");
@@ -47,13 +58,14 @@ export const AuthProvider = function ({ children }) {
   };
 
   const value = {
-    user,
-    isLoading,
-    isAuthenticated: Boolean(user),
-    register,
-    login,
-    logout,
-  };
+  user,
+  isLoading,
+  isAuthenticated: Boolean(user),
+  register,
+  login,
+  loginWithGoogle,
+  logout,
+};
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

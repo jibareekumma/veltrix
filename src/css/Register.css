@@ -258,4 +258,15 @@
 
 input {
   font-size: 5rem;
+}
+
+.register__social-btn-wrapper {
+  position: relative;
+}
+
+.google-auth-button {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  overflow: hidden;
 }/*# sourceMappingURL=Register.css.map */
