@@ -1,0 +1,48 @@
+
+
+
+
+@import "./Variable";
+@import "./Mixings";
+
+.order-success {
+  min-height: 70vh;
+  @include flex-center;
+  flex-direction: column;
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.order-success__icon {
+  color: $color-yellow;
+  margin-bottom: 24px;
+}
+
+.order-success__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: $color-text-light;
+  margin-bottom: 12px;
+}
+
+.order-success__text {
+  color: $color-text-muted;
+  font-size: 0.9rem;
+  margin-bottom: 28px;
+  max-width: 400px;
+}
+
+.order-success__cta {
+  padding: 14px 24px;
+  border-radius: $radius-sm;
+  background-color: $color-yellow;
+  color: $color-black;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  transition: background-color $transition-base;
+
+  &:hover {
+    background-color: $color-yellow-light;
+  }
+}

@@ -1,7 +1,8 @@
 
 
-
 import { createContext, useContext, useEffect, useState } from "react";
+import { useAuth } from "./AuthContext";
+import { fetchCart, addCartItem, updateCartItem, removeCartItem, syncCart } from "../api/cart";
 
 const CartContext = createContext(null);
 const CART_STORAGE_KEY = "veltrix_cart";
@@ -15,12 +16,54 @@ const loadCartFromStorage = function () {
   }
 };
 
+const mapServerItem = function (item) {
+  return {
+    id: item.id,
+    cartItemId: item.cartItemId,
+    title: item.title,
+    price: Number(item.price),
+    image: item.image,
+    size: item.size,
+    color: item.color,
+    quantity: item.quantity,
+  };
+};
+
 export const CartProvider = function ({ children }) {
+  const { isAuthenticated } = useAuth();
   const [cartItems, setCartItems] = useState(loadCartFromStorage);
+  const [hasSynced, setHasSynced] = useState(false);
 
   useEffect(function () {
-    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
-  }, [cartItems]);
+    if (!isAuthenticated) {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
+    }
+  }, [cartItems, isAuthenticated]);
+
+  useEffect(function () {
+    if (isAuthenticated && !hasSynced) {
+      const localItems = loadCartFromStorage();
+
+      syncCart(localItems)
+        .then(function (serverItems) {
+          setCartItems(serverItems.map(mapServerItem));
+          localStorage.removeItem(CART_STORAGE_KEY);
+          setHasSynced(true);
+        })
+        .catch(function () {
+          fetchCart()
+            .then(function (serverItems) {
+              setCartItems(serverItems.map(mapServerItem));
+              setHasSynced(true);
+            })
+            .catch(function () {});
+        });
+    }
+
+    if (!isAuthenticated) {
+      setHasSynced(false);
+    }
+  }, [isAuthenticated, hasSynced]);
 
   const buildCartItemId = function (productId, size, color) {
     return [productId, size || "no-size", color || "no-color"].join("-");
@@ -43,6 +86,19 @@ export const CartProvider = function ({ children }) {
       }
       return [...prevItems, { ...product, size, color, quantity, cartItemId }];
     });
+
+    if (isAuthenticated) {
+      addCartItem({
+        cartItemId,
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image,
+        size,
+        color,
+        quantity,
+      }).catch(function () {});
+    }
   };
 
   const removeFromCart = function (cartItemId) {
@@ -51,6 +107,10 @@ export const CartProvider = function ({ children }) {
         return item.cartItemId !== cartItemId;
       });
     });
+
+    if (isAuthenticated) {
+      removeCartItem(cartItemId).catch(function () {});
+    }
   };
 
   const updateQuantity = function (cartItemId, quantity) {
@@ -59,6 +119,19 @@ export const CartProvider = function ({ children }) {
         return item.cartItemId === cartItemId ? { ...item, quantity } : item;
       });
     });
+
+    if (isAuthenticated) {
+      updateCartItem(cartItemId, quantity).catch(function () {});
+    }
+  };
+
+  const clearCart = function () {
+    if (isAuthenticated) {
+      cartItems.forEach(function (item) {
+        removeCartItem(item.cartItemId).catch(function () {});
+      });
+    }
+    setCartItems([]);
   };
 
   const cartCount = cartItems.reduce(function (total, item) {
@@ -74,6 +147,7 @@ export const CartProvider = function ({ children }) {
     addToCart,
     removeFromCart,
     updateQuantity,
+    clearCart,
     cartCount,
     cartTotal,
   };

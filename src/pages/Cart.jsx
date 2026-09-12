@@ -1,6 +1,6 @@
 
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import ImagePlaceholder from "../components/ImagePlaceholder/ImagePlaceholder";
 import "../css/Cart.css";
@@ -24,6 +24,8 @@ const Cart = function () {
   const handleQuantityChange = function (cartItemId, event) {
     updateQuantity(cartItemId, Number(event.target.value));
   };
+
+  const navigate = useNavigate()
 
   return (
     <main className="cart-page">
@@ -79,7 +81,9 @@ const Cart = function () {
       </div>
       <div className="cart-page__summary">
         <p className="cart-page__total">Total: ${cartTotal.toFixed(2)}</p>
-        <button className="cart-page__checkout">Proceed to Checkout</button>
+        <button className="cart-page__checkout" onClick={function () { navigate("/checkout"); }}>
+        Proceed to Checkout
+        </button>
       </div>
     </main>
   );

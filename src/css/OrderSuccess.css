@@ -1,0 +1,42 @@
+.order-success {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.order-success__icon {
+  color: rgb(245, 183, 0);
+  margin-bottom: 24px;
+}
+
+.order-success__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: rgb(238, 243, 240);
+  margin-bottom: 12px;
+}
+
+.order-success__text {
+  color: rgb(150, 163, 155);
+  font-size: 0.9rem;
+  margin-bottom: 28px;
+  max-width: 400px;
+}
+
+.order-success__cta {
+  padding: 14px 24px;
+  border-radius: 4px;
+  background-color: rgb(245, 183, 0);
+  color: rgb(14, 19, 17);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+.order-success__cta:hover {
+  background-color: rgb(255, 215, 79);
+}/*# sourceMappingURL=OrderSuccess.css.map */

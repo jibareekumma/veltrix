@@ -67,6 +67,7 @@
 }
 .product-details__quantity {
   width: 70px;
+  font-size: 1.3rem;
 }
 .product-details__cta {
   display: block;

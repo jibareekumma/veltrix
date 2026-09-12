@@ -101,6 +101,7 @@
     display: block;
     color: $color-charcoal;
     font-size: 0.8rem;
+
   }
 
   &__item-price {
@@ -114,6 +115,8 @@
     text-align: center;
     border: 1px solid $color-charcoal;
     border-radius: $radius-sm;
+  
+    font-size: 1.3rem;
   }
 
   &__remove {

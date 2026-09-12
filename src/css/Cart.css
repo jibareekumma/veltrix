@@ -96,6 +96,7 @@
   text-align: center;
   border: 1px solid rgb(24, 32, 29);
   border-radius: 4px;
+  font-size: 1.3rem;
 }
 .cart-page__remove {
   color: rgb(24, 32, 29);

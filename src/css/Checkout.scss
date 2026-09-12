@@ -1,0 +1,119 @@
+
+
+@import "./Variable";
+@import "./Mixings";
+
+.checkout-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.checkout-page--empty {
+  text-align: center;
+  padding: 100px 24px;
+}
+
+.checkout-page__title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: $color-text-light;
+  margin-bottom: 32px;
+}
+
+.checkout-page__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+
+  @include desktop {
+    grid-template-columns: 1.5fr 1fr;
+  }
+}
+
+.checkout-page__section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $color-text-light;
+  margin-bottom: 20px;
+}
+
+.checkout-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.checkout-page__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    color: $color-text-light;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  input {
+    padding: 14px 16px;
+    border-radius: $radius-sm;
+    border: 1px solid $color-charcoal;
+    background-color: rgba(255, 255, 255, 0.04);
+    color: $color-text-light;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color $transition-base;
+
+    &:focus {
+      border-color: $color-yellow;
+    }
+  }
+}
+
+.checkout-page__submit {
+  padding: 16px 18px;
+  border-radius: $radius-sm;
+  background-color: $color-yellow;
+  color: $color-black;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 8px;
+  transition: background-color $transition-base;
+
+  &:hover {
+    background-color: $color-yellow-light;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.checkout-page__summary {
+  border: 1px solid $color-charcoal;
+  border-radius: $radius-sm;
+  padding: 24px;
+  height: fit-content;
+}
+
+.checkout-page__summary-row {
+  display: flex;
+  justify-content: space-between;
+  color: $color-text-muted;
+  font-size: 0.85rem;
+  padding: 8px 0;
+}
+
+.checkout-page__summary-total {
+  display: flex;
+  justify-content: space-between;
+  color: $color-text-light;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid $color-charcoal;
+}

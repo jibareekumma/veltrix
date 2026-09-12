@@ -17,6 +17,11 @@ import NewPassword from "./components/authPages/NewPassword";
 import Success from "./components/authPages/Success";
 import Contact from "./components/Contact";
 
+
+import Checkout from "./pages/Checkout";
+import OrderSuccess from "./pages/OrderSuccess";
+
+
 const standalonePaths = [
   "/",
   "/register",
@@ -49,6 +54,9 @@ const App = function () {
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/contact" element={<Contact />} />
+
+        <Route path="/checkout" element={<Checkout />} />
+<Route path="/order-success" element={<OrderSuccess />} />
       </Routes>
       {!isStandalonePage && <Footer />}
     </>
