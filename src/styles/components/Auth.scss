@@ -1,0 +1,210 @@
+@use "../base/Variables" as *;
+@use "../base/Mixins" as *;
+
+.auth {
+  min-height: 100vh;
+  background-color: $color-black;
+
+  &__panel {
+    @include flex-center;
+    min-height: 100vh;
+    padding: 24px 16px;
+    background-image: url("/bg/veltrix-bg(mbl).png");
+    background-size: cover;
+    background-position: center;
+
+    @include desktop {
+      justify-content: flex-start;
+      padding: 40px 6vw;
+      background-image: url("/bg/veltrix-bg(dsk).png");
+    }
+  }
+
+  &__card {
+    width: 100%;
+    max-width: 440px;
+    padding: 28px 24px 24px;
+    border: 1px solid rgba(242, 244, 241, 0.1);
+    border-radius: $radius-lg;
+    background-color: rgba(13, 15, 14, 0.78);
+    backdrop-filter: blur(16px);
+    color: $color-text-light;
+    animation: fade-up 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+
+    @include desktop {
+      padding: 36px 36px 28px;
+    }
+  }
+
+  &__header {
+    @include flex-between;
+    margin-bottom: 24px;
+  }
+
+  &__back {
+    @include flex-center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid $color-graphite;
+    border-radius: $radius-full;
+    color: $color-text-light;
+    transition: border-color $transition-base, color $transition-base;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover {
+      border-color: $color-yellow;
+      color: $color-yellow;
+    }
+  }
+
+  &__logo {
+    height: 26px;
+    width: auto;
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    margin: 4px 0 22px;
+    color: $color-text-muted;
+    font-size: 0.9rem;
+  }
+
+  &__notice {
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    border: 1px solid rgba(238, 178, 0, 0.4);
+    border-radius: $radius-md;
+    background-color: rgba(238, 178, 0, 0.1);
+    color: $color-yellow-light;
+    font-size: 0.85rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__label {
+    color: $color-text-muted;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  &__input-wrapper {
+    position: relative;
+  }
+
+  &__input {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    border: 1px solid $color-graphite;
+    border-radius: $radius-md;
+    background-color: rgba(23, 28, 26, 0.8);
+    color: $color-text-light;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color $transition-base, box-shadow $transition-base;
+
+    &::placeholder {
+      color: $color-gray;
+    }
+
+    &:focus {
+      border-color: $color-yellow;
+      box-shadow: 0 0 0 3px rgba(238, 178, 0, 0.18);
+    }
+  }
+
+  &__input-wrapper &__input {
+    padding-right: 48px;
+  }
+
+  &__toggle {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    @include flex-center;
+    width: 34px;
+    height: 34px;
+    color: $color-text-muted;
+    transform: translateY(-50%);
+    transition: color $transition-base;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+
+  &__error {
+    padding: 10px 14px;
+    border-radius: $radius-md;
+    background-color: rgba(196, 69, 45, 0.15);
+    color: #ff9d8a;
+    font-size: 0.85rem;
+    animation: shake 0.4s ease;
+  }
+
+  &__divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 20px 0;
+    color: $color-text-muted;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: $color-graphite;
+    }
+  }
+
+  &__hint {
+    margin-top: 10px;
+    color: $color-text-muted;
+    font-size: 0.75rem;
+    text-align: center;
+  }
+
+  &__footer {
+    margin-top: 22px;
+    color: $color-text-muted;
+    font-size: 0.85rem;
+    text-align: center;
+
+    a {
+      color: $color-yellow;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

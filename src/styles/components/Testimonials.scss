@@ -1,0 +1,69 @@
+@use "../base/Variables" as *;
+@use "../base/Mixins" as *;
+
+.testimonials {
+  @include container;
+  padding-block: 56px;
+
+  .section-title {
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    display: grid;
+    gap: 20px;
+
+    @include desktop {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    height: 100%;
+    padding: 28px;
+    border: 1px solid $color-line;
+    border-radius: $radius-md;
+    background-color: $color-white;
+    transition: transform $transition-smooth, box-shadow $transition-smooth;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-md;
+    }
+  }
+
+  &__text {
+    font-family: $font-display;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    color: $color-black;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: $radius-full;
+    object-fit: cover;
+  }
+
+  &__name {
+    display: block;
+    font-size: 0.95rem;
+    line-height: 1.2;
+  }
+
+  &__role {
+    color: $color-gray;
+    font-size: 0.75rem;
+  }
+}

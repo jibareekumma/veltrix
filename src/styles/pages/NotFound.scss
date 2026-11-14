@@ -1,0 +1,27 @@
+@use "../base/Variables" as *;
+@use "../base/Mixins" as *;
+
+.not-found {
+  @include container;
+  padding-block: 120px;
+  text-align: center;
+
+  &__code {
+    display: block;
+    color: $color-yellow;
+    font-family: $font-display;
+    font-size: clamp(6rem, 22vw, 11rem);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    margin: 8px 0 28px;
+    color: $color-gray;
+  }
+}

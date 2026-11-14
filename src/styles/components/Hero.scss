@@ -1,0 +1,131 @@
+@use "../base/Variables" as *;
+@use "../base/Mixins" as *;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background-color: $color-black;
+  padding-block: 56px 72px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    width: 70vw;
+    max-width: 780px;
+    aspect-ratio: 1;
+    background: radial-gradient(circle, rgba(238, 178, 0, 0.22), transparent 65%);
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  &__inner {
+    @include container;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @include desktop {
+      flex-direction: row;
+      align-items: center;
+      gap: 40px;
+      min-height: 560px;
+    }
+  }
+
+  &__content {
+    flex: 1;
+
+    & > * {
+      animation: fade-up 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+
+    & > :nth-child(2) {
+      animation-delay: 0.1s;
+    }
+    & > :nth-child(3) {
+      animation-delay: 0.2s;
+    }
+    & > :nth-child(4) {
+      animation-delay: 0.3s;
+    }
+    & > :nth-child(5) {
+      animation-delay: 0.4s;
+    }
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    @include eyebrow;
+    color: $color-yellow;
+  }
+
+  &__title {
+    margin: 14px 0 18px;
+    color: $color-text-light;
+    font-size: clamp(3rem, 9vw, 5.6rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+
+  &__title-accent {
+    display: block;
+    color: $color-yellow;
+  }
+
+  &__text {
+    max-width: 440px;
+    color: $color-text-muted;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  &__stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 44px;
+    padding-top: 24px;
+    border-top: 1px solid $color-graphite;
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+
+    strong {
+      font-family: $font-display;
+      font-size: 2rem;
+      line-height: 1;
+      color: $color-text-light;
+    }
+
+    span {
+      margin-top: 4px;
+      color: $color-text-muted;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+    }
+  }
+
+  &__media {
+    position: relative;
+    flex: 1.1;
+  }
+
+  &__image {
+    width: 100%;
+    mix-blend-mode: lighten;
+    mask-image: radial-gradient(ellipse at center, #000 55%, transparent 90%);
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 55%, transparent 90%);
+    animation: float 7s ease-in-out infinite;
+  }
+}

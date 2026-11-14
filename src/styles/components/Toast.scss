@@ -1,0 +1,48 @@
+@use "../base/Variables" as *;
+@use "../base/Mixins" as *;
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100vw - 32px);
+  padding: 14px 22px;
+  background-color: $color-black;
+  color: $color-text-light;
+  border-radius: $radius-full;
+  box-shadow: $shadow-lg;
+  font-size: 0.9rem;
+  transform: translateX(-50%);
+  animation: toast-in 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+
+  &__dot {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: $radius-full;
+    background-color: $color-success;
+  }
+
+  &--info &__dot {
+    background-color: $color-yellow;
+  }
+
+  &--error &__dot {
+    background-color: $color-danger;
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 24px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

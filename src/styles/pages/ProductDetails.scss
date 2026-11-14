@@ -1,0 +1,268 @@
+@use "../base/Variables" as *;
+@use "../base/Mixins" as *;
+
+.product-details {
+  @include container;
+  padding-block: 32px 24px;
+
+  &--empty {
+    padding-block: 120px;
+    text-align: center;
+
+    h1 {
+      font-size: 2.4rem;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin: 10px 0 28px;
+      color: $color-gray;
+    }
+  }
+
+  &__crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+    color: $color-gray;
+    font-size: 0.8rem;
+
+    a:hover {
+      color: $color-yellow-dark;
+    }
+
+    strong {
+      color: $color-black;
+      font-weight: 500;
+    }
+  }
+
+  &__main {
+    display: grid;
+    gap: 32px;
+
+    @include desktop {
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+  }
+
+  &__gallery {
+    overflow: hidden;
+    border: 1px solid $color-line;
+    border-radius: $radius-lg;
+    background-color: $color-white;
+
+    @include desktop {
+      position: sticky;
+      top: calc(#{$header-height} + 24px);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    animation: fade-in 0.6s ease both;
+    transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+    &:hover {
+      transform: scale(1.06);
+    }
+  }
+
+  &__category {
+    @include eyebrow;
+    color: $color-yellow-dark;
+  }
+
+  &__title {
+    margin: 8px 0 12px;
+    font-size: 2.6rem;
+    text-transform: uppercase;
+
+    @include desktop {
+      font-size: 3.4rem;
+    }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $color-gray;
+    font-size: 0.85rem;
+  }
+
+  &__price {
+    margin: 14px 0 18px;
+    font-family: $font-display;
+    font-size: 2.2rem;
+    font-weight: 600;
+  }
+
+  &__description {
+    max-width: 480px;
+    margin-bottom: 28px;
+    color: $color-gray;
+    line-height: 1.7;
+  }
+
+  &__block {
+    margin-bottom: 24px;
+  }
+
+  &__label {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-family: $font-display;
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    small {
+      color: $color-gray;
+      font-family: $font-primary;
+      font-size: 0.75rem;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+  }
+
+  &__sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__size {
+    @include flex-center;
+    width: 56px;
+    height: 48px;
+    border: 1.5px solid $color-line;
+    border-radius: $radius-md;
+    background-color: $color-white;
+    font-family: $font-display;
+    font-size: 1.2rem;
+    transition: border-color $transition-base, background-color $transition-base,
+      color $transition-base, transform $transition-base;
+
+    &:hover {
+      border-color: $color-black;
+    }
+
+    &--active {
+      background-color: $color-black;
+      border-color: $color-black;
+      color: $color-yellow;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__error {
+    margin-top: 10px;
+    color: $color-danger;
+    font-size: 0.85rem;
+    animation: shake 0.4s ease;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  &__stepper {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid $color-line;
+    border-radius: $radius-full;
+    background-color: $color-white;
+
+    button {
+      width: 44px;
+      height: 52px;
+      font-size: 1.3rem;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $color-yellow-dark;
+      }
+    }
+
+    span {
+      min-width: 26px;
+      text-align: center;
+      font-family: $font-display;
+      font-size: 1.3rem;
+    }
+  }
+
+  &__cta {
+    flex: 1;
+    padding-block: 18px;
+  }
+
+  &__perks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-bottom: 28px;
+    color: $color-gray;
+    font-size: 0.8rem;
+
+    li::before {
+      content: "✓";
+      margin-right: 6px;
+      color: $color-success;
+      font-weight: 700;
+    }
+  }
+
+  &__accordion {
+    padding: 16px 0;
+    border-top: 1px solid $color-line;
+
+    &:last-of-type {
+      border-bottom: 1px solid $color-line;
+    }
+
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: $font-display;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      list-style: none;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        content: "+";
+        font-size: 1.4rem;
+        transition: transform $transition-base;
+      }
+    }
+
+    &[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    p {
+      margin-top: 12px;
+      color: $color-gray;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      animation: fade-in 0.4s ease both;
+    }
+  }
+}

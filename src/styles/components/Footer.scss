@@ -1,0 +1,109 @@
+@use "../base/Variables" as *;
+@use "../base/Mixins" as *;
+
+.footer {
+  margin-top: 80px;
+  padding: 64px 0 24px;
+  background-color: $color-black;
+  color: $color-text-muted;
+
+  &__inner {
+    @include container;
+    display: grid;
+    gap: 40px;
+
+    @include desktop {
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 60px;
+    }
+  }
+
+  &__logo {
+    height: 28px;
+    width: auto;
+    margin-bottom: 18px;
+  }
+
+  &__text {
+    max-width: 340px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  &__newsletter {
+    display: flex;
+    max-width: 400px;
+    margin-top: 22px;
+    padding: 5px;
+    border: 1px solid $color-graphite;
+    border-radius: $radius-full;
+    transition: border-color $transition-base;
+
+    &:focus-within {
+      border-color: $color-yellow;
+    }
+  }
+
+  &__input {
+    flex: 1;
+    min-width: 0;
+    padding: 0 16px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: $color-text-light;
+    font-size: 0.9rem;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+  }
+
+  &__button {
+    padding: 10px 20px;
+    border-radius: $radius-full;
+    background-color: $color-yellow;
+    color: $color-black;
+    font-family: $font-display;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background-color $transition-base;
+
+    &:hover {
+      background-color: $color-yellow-light;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 18px;
+    color: $color-text-light;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__list li {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+
+    a {
+      transition: color $transition-base;
+
+      &:hover {
+        color: $color-yellow;
+      }
+    }
+  }
+
+  &__copyright {
+    @include container;
+    margin-top: 48px;
+    padding-top: 22px;
+    border-top: 1px solid $color-graphite;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+}

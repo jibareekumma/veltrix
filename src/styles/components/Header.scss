@@ -1,0 +1,225 @@
+@use "../base/Variables" as *;
+@use "../base/Mixins" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: $color-black;
+  border-bottom: 1px solid transparent;
+  transition: background-color $transition-base, border-color $transition-base,
+    box-shadow $transition-base;
+
+  &--scrolled {
+    background-color: rgba(13, 15, 14, 0.88);
+    backdrop-filter: blur(14px);
+    border-bottom-color: rgba(242, 244, 241, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  &__inner {
+    @include container;
+    @include flex-between;
+    height: $header-height;
+  }
+
+  &__logo {
+    display: block;
+
+    img {
+      height: 28px;
+      width: auto;
+      transition: transform $transition-base;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background-color: $color-charcoal;
+    transition: max-height 0.4s ease;
+
+    &--open {
+      max-height: 260px;
+      border-bottom: 1px solid rgba(242, 244, 241, 0.08);
+    }
+
+    @include desktop {
+      position: static;
+      width: auto;
+      max-height: none;
+      overflow: visible;
+      background: transparent;
+      border: none;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 20px 16px;
+
+    @include desktop {
+      flex-direction: row;
+      gap: 36px;
+      padding: 0;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    padding: 12px 0;
+    font-family: $font-display;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-text-light;
+    transition: color $transition-base;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 6px;
+      width: 100%;
+      height: 2px;
+      background-color: $color-yellow;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform $transition-base;
+    }
+
+    &:hover,
+    &--active {
+      color: $color-yellow;
+    }
+
+    &:hover::after,
+    &--active::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  &__guest {
+    padding: 3px 10px;
+    border: 1px solid rgba(242, 244, 241, 0.25);
+    border-radius: $radius-full;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+
+  &__login {
+    font-family: $font-display;
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-text-light;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+
+  &__avatar {
+    @include flex-center;
+    width: 34px;
+    height: 34px;
+    border-radius: $radius-full;
+    background-color: $color-yellow;
+    color: $color-black;
+    font-family: $font-display;
+    font-size: 1.15rem;
+    font-weight: 700;
+    transition: transform $transition-base, box-shadow $transition-base;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-glow;
+    }
+  }
+
+  &__cart {
+    position: relative;
+    display: block;
+    color: $color-text-light;
+    transition: color $transition-base;
+
+    svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+
+  &__cart-count {
+    position: absolute;
+    top: -7px;
+    right: -9px;
+    @include flex-center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: $radius-full;
+    background-color: $color-yellow;
+    color: $color-black;
+    font-size: 0.65rem;
+    font-weight: 700;
+    animation: pop 0.4s ease both;
+  }
+
+  &__menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 28px;
+    height: 28px;
+
+    span {
+      display: block;
+      height: 2px;
+      background-color: $color-text-light;
+      border-radius: $radius-full;
+      transition: transform $transition-base, opacity $transition-base;
+    }
+
+    &--open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    &--open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    &--open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@use "../base/Variables" as *;
+
+.rating {
+  display: inline-block;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  line-height: 1;
+
+  &::before {
+    content: "★★★★★";
+    background: linear-gradient(
+      90deg,
+      $color-yellow calc(var(--rating) / 5 * 100%),
+      $color-line calc(var(--rating) / 5 * 100%)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
